@@ -405,6 +405,8 @@ class SOAPRequestHandler(http.server.BaseHTTPRequestHandler):
 
                     else:
                         if self.server.config.specialArgs:
+                            print("ordered_args: {}".format(ordered_args))
+                            print("named_args: {}".format(named_args))
                             fr = f(*ordered_args, **named_args)
                         else:
                             fr = f(*args, **{})

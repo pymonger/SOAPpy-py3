@@ -1049,6 +1049,7 @@ class EmptyEntityResolver(xml.sax.handler.EntityResolver):
 
 def _parseSOAP(xml_str, rules = None, ignore_ext=None,
                forbid_entities=False, forbid_external=True, forbid_dtd=False):
+    xml_str = xml_str.decode() if isinstance(xml_str, bytes) else xml_str
     inpsrc = xml.sax.xmlreader.InputSource()
     inpsrc.setByteStream(StringIO(xml_str))
     if ignore_ext is None:
